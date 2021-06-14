@@ -187,6 +187,7 @@ int abpoa_anchor_poa(abpoa_t *ab, abpoa_para_t *abpt, uint8_t **seqs, int *seq_l
         if (ai < par_c[_i]) {
             abs->is_rc[read_id] = (abs->is_rc[last_read_id] ^ (par_anchors.a[ai] >> 63));
             // construct rc qseq
+            /*
             if (abs->is_rc[read_id]) {
                 qseq = (uint8_t*)_err_malloc(qlen * sizeof(uint8_t));
                 for (j = 0; j < qlen; ++j) {
@@ -205,7 +206,8 @@ int abpoa_anchor_poa(abpoa_t *ab, abpoa_para_t *abpt, uint8_t **seqs, int *seq_l
                         par_anchors.a[par_c[_i]-1-j] = tmp;
                     }
                 }
-            } else { 
+            } else */
+            {
                 qseq = seqs[i];
                 if (abs->is_rc[last_read_id]) { // reset tpos/qpos in par_anchors 
                     int last_qlen = seq_lens[read_id_map[_i-1]];
@@ -256,7 +258,7 @@ int abpoa_anchor_poa(abpoa_t *ab, abpoa_para_t *abpt, uint8_t **seqs, int *seq_l
         if (res.n_cigar) free(res.graph_cigar);
 
         abpoa_add_subgraph_alignment(ab, abpt, ABPOA_SRC_NODE_ID, ABPOA_SINK_NODE_ID, qseq, qlen, qpos_to_node_id, whole_res, read_id, tot_n_seq, 1);
-        if (abs->is_rc[read_id]) free(qseq);
+        //if (abs->is_rc[read_id]) free(qseq);
 
         if (whole_res.n_cigar) free(whole_res.graph_cigar);
 
@@ -296,7 +298,7 @@ int abpoa_poa(abpoa_t *ab, abpoa_para_t *abpt, uint8_t **seqs, int *seq_lens, in
             if (rc_res.n_cigar) free(rc_res.graph_cigar);
         } 
         abpoa_add_graph_alignment(ab, abpt, qseq, qlen, NULL, res, read_id, tot_n_seq, 1);
-        if (abs->is_rc[read_id]) free(qseq);
+        //if (abs->is_rc[read_id]) free(qseq);
         if (res.n_cigar) free(res.graph_cigar);
     }
     // err_func_format_printf(__func__, "Performing POA ... done.");
