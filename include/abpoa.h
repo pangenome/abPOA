@@ -134,6 +134,8 @@ int abpoa_msa(abpoa_t *ab, abpoa_para_t *abpt, int n_seqs, char **seq_names, int
 
 int abpoa_msa1(abpoa_t *ab, abpoa_para_t *abpt, char *read_fn, FILE *out_fp, uint8_t ***cons_seq, int ***cons_cov, int **cons_l, int *cons_n, uint8_t ***msa_seq, int *msa_l);
 
+int abpoa_poa(abpoa_t *ab, abpoa_para_t *abpt, uint8_t **seqs, int *seq_lens, int exist_n_seq, int n_seq);
+
 // clean alignment graph
 void abpoa_reset_graph(abpoa_t *ab, abpoa_para_t *abpt, int qlen);
 
