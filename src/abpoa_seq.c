@@ -91,9 +91,9 @@ const char com_nt256_table[256] = {
 
 // TODO amino acid matrix
 
-abpoa_seq_t *abpoa_init_seq(void) {
+abpoa_seq_t *abpoa_init_seq(int seq_count) {
     abpoa_seq_t *abs = (abpoa_seq_t*)_err_malloc(sizeof(abpoa_seq_t));
-    abs->n_seq = 0; abs->m_seq = CHUNK_READ_N;
+    abs->n_seq = 0; abs->m_seq = seq_count;
     abs->seq = (abpoa_str_t*)_err_calloc(abs->m_seq, sizeof(abpoa_str_t));
     abs->name = (abpoa_str_t*)_err_calloc(abs->m_seq, sizeof(abpoa_str_t));
     abs->comment = (abpoa_str_t*)_err_calloc(abs->m_seq, sizeof(abpoa_str_t));

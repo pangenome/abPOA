@@ -11,6 +11,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -march=native") # SIMD
+#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -march=native -mcx16 -g -fsanitize=address") # SIMD + ASAN
 
 # build abPOA as a static library by default
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build all libraries as shared")

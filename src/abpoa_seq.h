@@ -12,7 +12,7 @@ extern "C" {
 
 abpoa_seq_t *abpoa_realloc_seq(abpoa_seq_t *abs);
 void abpoa_cpy_str(abpoa_str_t *str, char *s, int l);
-abpoa_seq_t *abpoa_init_seq(void);
+abpoa_seq_t *abpoa_init_seq(int seq_count);
 void abpoa_free_seq(abpoa_seq_t *abs);
 int abpoa_read_seq(abpoa_seq_t *abs, kseq_t *kseq);
 #ifdef __cplusplus

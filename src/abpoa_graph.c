@@ -129,10 +129,10 @@ void abpoa_free_graph(abpoa_graph_t *abg) {
     free(abg);
 }
 
-abpoa_t *abpoa_init(void) {
+abpoa_t *abpoa_init(int prealloc_seqs) {
     abpoa_t *ab = (abpoa_t*)_err_malloc(sizeof(abpoa_t));
     ab->abg = abpoa_init_graph();
-    ab->abs = abpoa_init_seq();
+    ab->abs = abpoa_init_seq(prealloc_seqs);
     ab->abm = abpoa_init_simd_matrix();
     return ab;
 }

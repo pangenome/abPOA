@@ -137,7 +137,7 @@ int abpoa_usage(void)
 int abpoa_main(char *file_fn, int is_list, abpoa_para_t *abpt){
     double realtime0 = realtime();
     // TODO abpoa_init for each input file ???
-    abpoa_t *ab = abpoa_init();
+    abpoa_t *ab = abpoa_init(CHUNK_READ_N);
     if (is_list) { // input file list
         FILE *list_fp = fopen(file_fn, "r"); char read_fn[1024];
         while (fgets(read_fn, sizeof(read_fn), list_fp)) {

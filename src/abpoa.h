@@ -126,7 +126,7 @@ void abpoa_post_set_para(abpoa_para_t *abpt);
 void abpoa_free_para(abpoa_para_t *abpt);
 
 // init for alignment
-abpoa_t *abpoa_init(void);
+abpoa_t *abpoa_init(int prealloc_seqs);
 void abpoa_free(abpoa_t *ab);
 
 // perform msa
